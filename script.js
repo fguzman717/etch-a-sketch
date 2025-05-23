@@ -15,12 +15,14 @@ body.appendChild(container);
 const fragment = document.createDocumentFragment();
 
 for (let i = 1; i <= 256; i++) {
-  const div = document.createElement("div");
-  div.classList.add("grid-div");
-  div.textContent = `Div #${i}`;
-  fragment.appendChild(div);
+  const gridDiv = document.createElement("div");
+  gridDiv.classList.add("grid-div");
+  // gridDiv.textContent = `${i}`;
+  fragment.appendChild(gridDiv);
+
+  gridDiv.addEventListener("mouseover", (event) => {
+    event.target.style.background = "grey";
+  });
 }
 
 container.appendChild(fragment);
-
-// ***** When this is completed, create a css doc for styling then commit/push so you can start on a different branch just for styling *****

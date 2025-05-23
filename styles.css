@@ -1,0 +1,29 @@
+body {
+  margin: 0px;
+}
+/* Smaller Scale */
+/* #container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 475px;
+  height: 475px;
+}
+
+.grid-div {
+  width: 25px;
+  height: 25px;
+  border: 2px solid red;
+} */
+
+/* Larger Scale */
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 650px;
+  height: 650px;
+}
+
+.grid-div {
+  width: 40px;
+  height: 40px;
+}
