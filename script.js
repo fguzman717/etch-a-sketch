@@ -32,7 +32,7 @@ newGridButton.addEventListener("click", (event) => {
   container.setAttribute("id", "container");
   body.appendChild(container);
 
-  // This, along with the for loop, will efficiently append all divs at once rather than one at a time.
+  // This fragment, along with the for loop, will efficiently append all divs at once rather than one at a time.
   const fragment = document.createDocumentFragment();
 
   for (let i = 1; i <= gridSize; i++) {
@@ -40,8 +40,27 @@ newGridButton.addEventListener("click", (event) => {
     gridDiv.classList.add("grid-div");
     fragment.appendChild(gridDiv);
 
+    let opacity = 0.1;
+
     gridDiv.addEventListener("mouseover", (event) => {
-      event.target.style.background = "grey";
+      // Each time the mouse hovers over the square, the background color for that square will randomly change
+      let red, blue, green;
+      red = Math.random() * 255;
+      blue = Math.random() * 255;
+      green = Math.random() * 255;
+      event.target.style.background = `rgb(${red},${blue},${green})`;
+
+      // Each time the mouse hovers over the square, the opacity of the square will increase by .1 and once it reaches 1 the background color of the square will be black
+      function darkeningEffect() {
+        if (opacity < 1) {
+          opacity += 0.1;
+          opacity = Math.round(opacity * 10) / 10;
+          event.target.style.opacity = opacity;
+        } else {
+          event.target.style.background = "black";
+        }
+      }
+      darkeningEffect();
     });
   }
   container.appendChild(fragment);
